@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="src/Ethiopian-Church.webp" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <title>ቅዱስ ሚካኤል ሰንበት ትምህርት ቤት</title>
+    <style>
+        ul { list-style: none; padding: 0; }
+        li { margin: 5px 0; }
+        button { margin-left: 10px; }
+    </style>
+</head>
+
+<body>
+<header>
+  <img src="src/Ethiopian-Church.webp" alt="Our Church Logo" width="100" height="100">
+  <h1>ቅዱስ ሚካኤል ሰንበት ትምህርት ቤት</h1>
+</header>
+
+<nav>
+  <a href="index.html">ዋና ማዉጫ</a> 
+  <a href="aboutus.html">ስለ እኛ</a>
+  <a href="events.html">መርሃግብር</a>
+  <a href="contactUs.html">እኛን ለማግኘት</a>
+</nav>
+
+<section id="events">
+  <h2>መጪ መርሃግብራር</h2>
+  
+  <!-- Input for adding a new event -->
+  <input type="text" id="newEvent" placeholder="መርሃግብር አስገባ">
+  <button onclick="addEvent()">አክል</button>
+
+  <!-- Editable list of events -->
+  <ul id="eventList">
+      <li>መርሃግብር ፩ - ቀን <button onclick="editEvent(this)">አስተካክል</button> <button onclick="deleteEvent(this)">ሰርዝ</button></li>
+      <li>መርሃግብር ፪ - ቀን <button onclick="editEvent(this)">አስተካክል</button> <button onclick="deleteEvent(this)">ሰርዝ</button></li>
+      <li>መርሃግብር ፫ - ቀን <button onclick="editEvent(this)">አስተካክል</button> <button onclick="deleteEvent(this)">ሰርዝ</button></li>
+  </ul>
+</section>
+
+<footer>
+  <p>&copy; 2024 ቅዱስ ሚካኤል ሰንበት ትምህርት ቤት</p>
+</footer>
+
+<script>
+  // Function to add a new event
+  function addEvent() {
+    const eventList = document.getElementById("eventList");
+    const newEvent = document.getElementById("newEvent").value;
+    
+    if (newEvent) {
+      const li = document.createElement("li");
+      li.innerHTML = `${newEvent} <button onclick="editEvent(this)">አስተካክል</button> <button onclick="deleteEvent(this)">ሰርዝ</button>`;
+      eventList.appendChild(li);
+      document.getElementById("newEvent").value = ''; // Clear input
+    }
+  }
+
+  // Function to edit an existing event
+  function editEvent(button) {
+    const li = button.parentElement;
+    const currentText = li.firstChild.textContent.trim();
+    const newText = prompt("መርሃግብርን አስተካክል", currentText);
+    
+    if (newText) {
+      li.firstChild.textContent = newText + ' ';
+    }
+  }
+
+  // Function to delete an event
+  function deleteEvent(button) {
+    const li = button.parentElement;
+    li.remove();
+  }
+</script>
+</body>
+</html>
