@@ -281,6 +281,31 @@ form {
 
 
 
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.video-card {
+  width: 300px;
+  text-align: center;
+}
+
+.video-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.video-card h3 {
+  margin: 10px 0;
+}
+
+
+
+
 
 @media (max-width: 768px) {
   body {
